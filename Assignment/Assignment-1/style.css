@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(2 1 10 / 86%);
+}
+
+button:nth-child(4) {
+  background-color: orange;
+}
+#clearbox {
+  width: 300px;
+}
+
+#keys1 {
+  margin-top: 10px;
+}
+.calculator {
+  background-color: black;
+  width: fit-content;
+  padding: 30px;
+  display: grid;
+  margin-left: 35%;
+  border-radius: 20px;
+}
+
+#display {
+  background-color: rgb(71, 71, 71);
+  color: #fff;
+  height: 74px;
+  font-size: x-large;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+button {
+  padding: 10px;
+  font-size: large;
+  margin: 5px;
+  border-radius: 6px;
+  width: 65px;
+  height: 80px;
+}
+
