@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  width: 85%;
+  width: 90%;
   height: 95%;
   /* border: 1px solid #fff; */
   display: flex;
@@ -141,7 +141,7 @@ header .menu_slide .menu_song li .bi {
   position: absolute;
   right: 14px;
   top: 8px;
-  left: 12px;
+  /* left: 12px; */
   font-size: 22px;
 }
 header .master_play {
@@ -440,7 +440,7 @@ header .song_slide nav .user img {
 }
 header .song_slide .content {
   width: 90%;
-  height: 30%;
+  height: 35%;
   margin: auto;
   /* border: 1px solid #fff; */
   padding-top: 20px;
