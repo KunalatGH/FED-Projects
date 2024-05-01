@@ -1,34 +1,59 @@
-const music = new Audio('Audio/All Black.mp3');
+const music = new Audio('Audio/1.mp3');
+// const music = new Audio('Audio/2.mp3');
 
  const songs = [
     {
         id:'1',
         songName:' All Black <br> <div class="subtitle">Raftaar</div>',
-        poster:"img/2.jpeg"
+        poster:"img/1.jpeg"
     }
     ,
     {
         id:'2',
         songName:' Brown Rang <div class="subtitle">Honey Singh</div>',
-        poster:"img/BrownRang.jpeg"
+        poster:"img/2.jpeg"
     }
     ,
     {
         id:'3',
         songName:' Haaye Oye <div class="subtitle">Qaran</div>',
-        poster:"img/HaayeOye.jpeg"
+        poster:"img/3.jpeg"
     }
     ,
     {
         id:'4',
-        songName:' High Heels <div class="subtitle">Honey Singh</div>',
-        poster:"img/HighHeels.jpeg"
+        songName:' Jail 2 <div class="subtitle">Honey Singh</div>',
+        poster:"img/4.jpeg"
     }
     ,
     {
         id:'5',
         songName:' Temperature <div class="subtitle">Sean Paul</div>',
-        poster:"img/Temperature.jpeg"
+        poster:"img/5.jpeg"
+    },
+    ,
+    {
+        id:'6',
+        songName:' Tu Hi Das <div class="subtitle">Tedi Pagg</div>',
+        poster:"img/6.jpeg"
+    },
+    ,
+    {
+        id:'7',
+        songName:' Fashion <div class="subtitle">Guru Randhawa</div>',
+        poster:"img/7.jpeg"
+    },
+    ,
+    {
+        id:'8',
+        songName:' Soulmate <div class="subtitle">Badshah</div>',
+        poster:"img/8.jpeg"
+    },
+    ,
+    {
+        id:'9',
+        songName:' Maan Meri Jaan <div class="subtitle">King</div>',
+        poster:"img/9.jpeg"
     },
  ]
 
@@ -71,27 +96,39 @@ const makeAllBackground = ()=>{
 
 
 let index = 0;
-let poster_master_play = document.getElementById('poster_master_play')
+let poster_master_play = document.getElementById('poster_master_play')  
 let title = document.getElementById('title')
+
+
 Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) => {
     element.addEventListener('click', (e) => {
         index = e.target.id;
         makeAllPlays();
+        console.log("Clicked!");
+
         e.target.classList.remove('bi-play-circle-fill');
         e.target.classList.add('bi-pause-circle-fill');
+
         music.src = `Audio/${index}.mp3`;
-        poster_master_play.src = `Img/${index+1}.jpeg`;
         music.play();
+
+        poster_master_play.src = `Img/${index}.jpeg`;
+
+
         let song_title = songs.filter((ele)=>{
             return ele.id == index;
         })
+
+
         song_title.forEach(ele => {
             let {songName} = ele;
             title.innerHTML = songName;
         })
+
         masterPlay.classList.remove('bi-play-fill');
         masterPlay.classList.add('bi-pause-fill');
-        wave.classList.add('active2');
+        wave.classList.add('active2'); 
+
         music.addEventListener('ended',()=>{
         music.pause();
         masterPlay.classList.add('bi-play-fill')
@@ -99,7 +136,7 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) =>
         wave.classList.remove('active2');
         })
         makeAllBackground();
-        Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background ="rgb(105,105,170,.1)"
+        Array.from(document.getElementsByClassName('songItem'))[`${index}`].style.background ="rgb(105,105,170,.1)"
     })
  })
 
@@ -111,10 +148,10 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) =>
 
  music.addEventListener('timeupdate',()=>{
     let music_curr = music.currentTime;
-    let music_dur = music.duration
+    let music_dur = music.duration;
 
     let min = Math.floor(music_dur/60);
-    let sec = Math.floor(music_dur/60);
+    let sec = Math.floor(music_dur%60);
     if (sec<10) {
         sec = `0${sec}`
     }
@@ -122,7 +159,8 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) =>
 
 
     let min1 = Math.floor(music_curr/60);
-    let sec1 = Math.floor(music_curr/60);
+    let sec1 = Math.floor(music_curr%60);
+
     if (sec1<10) {
         sec1 = `0${sec1}`
     }
