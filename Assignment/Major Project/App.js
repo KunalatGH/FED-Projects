@@ -317,3 +317,19 @@ left_scrolls.addEventListener('click',()=>{
 right_scrolls.addEventListener('click',()=>{
     item.scrollLeft += 330;
 })
+
+
+const btn = document.getElementById('btn')
+btn.addEventListener('click',()=>{
+    console.log("Clicked");
+
+    music.src =`Audio/1.mp3`;
+        poster_master_play.src = `Img/1.jpeg`
+        music.play();
+
+        makeAllPlays()
+        masterPlay.classList.remove('bi-play-fill');
+        masterPlay.classList.add('bi-pause-fill');
+        wave.classList.add('active2'); 
+        makeAllBackground();
+})
