@@ -220,29 +220,38 @@ let back = document.getElementById('back');
 let next = document.getElementById('next');
 
 back.addEventListener('click',()=>{
+    let poster_master_play = document.getElementById('poster_master_play')  
+    let title = document.getElementById('title')
+
     index -= 1;
-    if(index<1){
+    if(index < 1){
         index = Array.from(document.getElementsByClassName('songItem')).length;
     }
-    music.src =`audio/${index}.mp3`;
-        poster_master_play.src = `img/${index}.jpg`
-        music.play();
-        let song_title = songs.filter((ele)=>{
-            return ele.id==index;
-        })
-        song_title.forEach(ele => {
-            let(songName) = ele;
-            title.innerHTML = songName;
+    music.src = `Audio/${index}.mp3`;
+    music.play();
+
+    poster_master_play.src = `Img/${index}.jpeg`;
+
+
+    let song_title = songs.filter((ele)=>{
+        return ele.id == index;
+    })
+
+
+    song_title.forEach(ele => {
+        let {songName} = ele;
+        title.innerHTML = songName;
         })
 
         makeAllPlays()
-
-
         document.getElementById(`${index}`).classList.remove('bi-play-fill');
         document.getElementById(`${index}`).classList.add('bi-pause-fill');
+        // wave.classList.add('active2');
+
         makeAllBackground();
         Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background ="rgb(105,105,170,.1)"
-})
+    })
+
 
 
 next.addEventListener('click',()=>{
@@ -251,8 +260,8 @@ next.addEventListener('click',()=>{
     if( index > Array.from(document.getElementsByClassName('songItem')).length){
         index =1;
     }
-    music.src =`audio/${index}.mp3`;
-        poster_master_play.src = `img/${index}.jpg`
+    music.src =`Audio/${index}.mp3`;
+        poster_master_play.src = `Img/${index}.jpg`
         music.play();
         let song_title = songs.filter((ele)=>{
             return ele.id==index;
@@ -263,8 +272,6 @@ next.addEventListener('click',()=>{
         })
 
         makeAllPlays()
-
-
         document.getElementById(`${index}`).classList.remove('bi-play-fill');
         document.getElementById(`${index}`).classList.add('bi-pause-fill');
         makeAllBackground();

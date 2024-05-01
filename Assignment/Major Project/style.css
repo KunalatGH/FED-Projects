@@ -219,6 +219,8 @@ header .master_play h5 .subtitle {
 header .master_play .icon {
   color: #fff;
   cursor: pointer;
+  margin-right: 1px;
+  width: 60px;
 
 }
 header .master_play h5 .icon {
@@ -242,6 +244,7 @@ header .master_play span {
   width: 32px;
   font-size: 11px;
   font-weight: 400;
+  /* margin-left: 12px; */
 }
 header .master_play span #currentStart {
   margin: 0px 0px 0px 20px;
@@ -270,12 +273,12 @@ header .master_play .bar .dot {
   border-radius: 50%;
   left: 0%;
   top: -1px;
-  transition: 1s linear;
+  transition: .8s linear;
 }
 header .master_play .bar .dot::before {
   content: "";
   position: absolute;
-  width: 5px;
+  width: 15px;
   height: 15px;
   border: 1px solid #36e2ec;
   border-radius: 50%;
@@ -305,6 +308,7 @@ header .master_play .vol .bi {
   font-size: 25px;
   top: -17px;
   left: -30px;
+  color: #fff;
 }
 
 header .master_play .vol input {
@@ -323,7 +327,7 @@ header .master_play .vol .vol_bar {
   width: 0%;
   height: 100%;
   top: 0;
-  transition: 1s linear;
+  transition: .8s linear;
 }
 header .master_play .vol .dot {
   position: absolute;
