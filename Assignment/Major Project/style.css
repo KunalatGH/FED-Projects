@@ -373,7 +373,7 @@ header .song_slide::before {
 }
 
 header .song_slide img {
-  width: initial;
+  width: 88%;
   border-radius: 10%;
 }
 
