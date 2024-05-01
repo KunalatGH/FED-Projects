@@ -121,12 +121,6 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element) =>
         masterPlay.classList.add('bi-pause-fill');
         wave.classList.add('active2'); 
 
-        // music.addEventListener('ended',()=>{
-        // music.pause();
-        // masterPlay.classList.add('bi-play-fill')
-        // masterPlay.classList.remove('bi-pause-fill')
-        // wave.classList.remove('active2');
-        // })
         makeAllBackground();
         Array.from(document.getElementsByClassName('songItem'))[`${index-1}`].style.background ="rgb(105,105,170,.1)"
     })
