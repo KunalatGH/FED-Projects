@@ -1,6 +1,28 @@
-# Getting Started with Create React App
+# Music Track Search
+
+This project is a music track search application built with React. It allows users to search for music tracks using the Spotify API and displays the results with track details and preview options.
+
+## Features
+
+- Search for music tracks by keyword
+- Display track details including name, artist, release date, and album cover
+- Play preview of tracks if available
+- Show a message if the preview is not available
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/music-track-search.git
+   ```
 
 ## Available Scripts
 
