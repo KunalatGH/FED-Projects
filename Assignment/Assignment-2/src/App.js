@@ -17,9 +17,6 @@ function App() {
     setIsLoading(false);
   };
 
-  
-  
-
   const handleSubmit = (event) => {
     event.preventDefault();
     getTracks();
@@ -65,12 +62,11 @@ function App() {
               className="spinner-border"
               style={{ width: "3rem", height: "3rem" }}
               role="status"
-            >
-              <span className="visually-hidden">Loading...</span>
-            </div>
+            ></div>
           </div>
+          <span className=" flex text-xl-center">Loading...</span>
         </div>
-        <div className="row ">
+        <div className="row">
           {tracks.map((element) => (
             <div key={element.id} className="col-lg-3 col-md-6 py-2">
               <div className="card">
@@ -88,13 +84,12 @@ function App() {
                     Release Date: {element.album.release_date}
                   </p>
                   {element.preview_url ? (
-
                     <audio
-                    src={element.preview_url}
-                    controls
-                    className="w-100"
+                      src={element.preview_url}
+                      controls
+                      className="w-100"
                     ></audio>
-                  ): (
+                  ) : (
                     <p className="text-muted">No preview available</p>
                   )}
                 </div>
