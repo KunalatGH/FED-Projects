@@ -4,6 +4,7 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
+  /* background-color: #f2f0f0 !important; */
 }
 
 body {
@@ -27,9 +28,9 @@ header {
 
 .logo {
   position: relative;
-  /* background-blend-mode: difference; */
-  width: 57%;
-  filter: drop-shadow(2px 3px 12px black);
+  object-fit: contain;
+  width: 4vw;
+  filter: drop-shadow(0px 0px 2px black);
 }
 
 header .menu_slide,

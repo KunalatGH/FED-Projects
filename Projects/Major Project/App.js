@@ -1,5 +1,4 @@
-const music = new Audio('Audio/1.mp3');
-// const music = new Audio('Audio/2.mp3');
+const music = new Audio('Audio/1.mp3')
 
  const songs = [
     {
@@ -265,16 +264,16 @@ next.addEventListener('click',()=>{
     index -= 0;
     index += 1;
     if( index > Array.from(document.getElementsByClassName('songItem')).length){
-        index =1;
+        index = 1;
     }
     music.src =`Audio/${index}.mp3`;
-        poster_master_play.src = `Img/${index}.jpg`
+        poster_master_play.src = `Img/${index}.jpeg`
         music.play();
         let song_title = songs.filter((ele)=>{
-            return ele.id==index;
+            return ele.id == index;
         })
         song_title.forEach(ele => {
-            let(songName) = ele;
+            let {songName} = ele;
             title.innerHTML = songName;
         })
 
