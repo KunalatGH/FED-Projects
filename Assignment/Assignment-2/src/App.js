@@ -17,6 +17,9 @@ function App() {
     setIsLoading(false);
   };
 
+  
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     getTracks();
@@ -31,7 +34,7 @@ function App() {
 
         <div className="container-fluid ">
           <a className="navbar-brand" href="/">
-            Spotify
+            Music Track Search
           </a>
 
           <div
@@ -84,12 +87,16 @@ function App() {
                   <p className="card-text">
                     Release Date: {element.album.release_date}
                   </p>
+                  {element.preview_url ? (
 
-                  <audio
+                    <audio
                     src={element.preview_url}
                     controls
                     className="w-100"
-                  ></audio>
+                    ></audio>
+                  ): (
+                    <p className="text-muted">No preview available</p>
+                  )}
                 </div>
               </div>
             </div>
