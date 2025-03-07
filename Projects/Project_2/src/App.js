@@ -1,9 +1,76 @@
 import "./App.css";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 function App() {
   const [keyword, setkeyword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [tracks, setTracks] = useState([]);
+
+  const [trendingTracks, setTrendingTracks] = useState([]);
+  const [accessToken, setAccessToken] = useState("");
+
+  useEffect(() => {
+    const getAccessToken = async () => {
+      const clientId = "a012327d663e4a6887d84ff4490a333b";
+      const clientSecret = "6dd59a95fb4a4250834ec7069043535d";
+      const authString = `${clientId}:${clientSecret}`;
+      const authBase64 = btoa(authString);
+
+      const response = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Basic ${authBase64}`,
+        },
+        body: "grant_type=client_credentials",
+      });
+
+      const data = await response.json();
+      setAccessToken(data.access_token);
+    };
+
+    getAccessToken();
+  }, []);
+
+  useEffect(() => {
+    const getTrendingTracks = async () => {
+      if (!accessToken) return;
+
+      setIsLoading(true);
+      try {
+        let data = await fetch(
+          `https://api.spotify.com/v1/browse/new-releases`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+
+        if (!data.ok) {
+          throw new Error(`Error: ${data.status} ${data.statusText}`);
+        }
+
+        let convertedData = await data.json();
+        console.log(convertedData);
+
+        // Check if albums and items exist in the response
+        if (convertedData.albums && convertedData.albums.items) {
+          const albums = convertedData.albums.items;
+          setTrendingTracks(albums);
+        } else {
+          console.error("Unexpected response structure:", convertedData);
+        }
+      } catch (error) {
+        console.error("Failed to fetch trending tracks:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    getTrendingTracks();
+  }, [accessToken]);
+
+
 
   const getTracks = async () => {
     setIsLoading(true);
@@ -33,7 +100,7 @@ function App() {
           <a className="navbar-brand" href="/">
             Music Track Search
           </a>
-
+{/* ////////////////////////////////////////////////////////////////// */}
           <div
             className="collapse navbar-collapse d-flex justify-content-center"
             id="navbarSupportedContent"
@@ -97,6 +164,38 @@ function App() {
             </div>
           ))}
         </div>
+        <div className="row">
+          <h2>Trending Songs</h2>
+          {trendingTracks.map((element) => (
+            <div key={element.id} className="col-lg-3 col-md-6 py-2">
+              <div className="card">
+                <img
+                  src={element.images[0].url}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{element.name}</h5>
+                  <p className="card-text">
+                    Artist: {element.artists[0].name}
+                  </p>
+                  <p className="card-text">
+                    Release Date: {element.release_date}
+                  </p>
+                  {element.preview_url ? (
+                    <audio
+                      src={element.preview_url}
+                      controls
+                      className="w-100"
+                    ></audio>
+                  ) : (
+                    <p className="text-muted">No preview available</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+          </div>
       </div>
     </>
   );
