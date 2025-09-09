@@ -1,17 +1,37 @@
-# Background Remover App
+# 🖼️ VisionBg AI
 
-This app is a background remover app that uses OpenCV to remove the background from an image or video. It is a simple app that uses the OpenCV library to remove the background from an image or video.
+A simple **Background Remover Web Application** built with **HTML, CSS, and JavaScript**, powered by the **Remove.bg API**.  
+This app lets users upload an image and remove its background instantly in just one click.
 
-## Usage
+---
 
-To use the app, simply drag and drop an image or video file onto the app. The app will then remove the background from the image or video and display the resulting image or video.
+## 🚀 Features
 
-# Screenshots
+- Upload an image and remove its background automatically
+- Powered by **Remove.bg API**
+- Simple and responsive design
+- One-click download of processed images
 
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla JS)**
+- **Remove.bg API**
+
+---
+
+## Screenshots
 
 ![alt text](Bg.png)
-## Installation
 
-To install the app, simply download the app from the GitHub repository and run the app in your browser.
+---
 
+## 📦 Setup Instructions
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/background-remover-app.git
+   ```
