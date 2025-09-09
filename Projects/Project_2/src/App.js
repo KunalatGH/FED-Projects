@@ -66,7 +66,7 @@ function App() {
         setIsLoading(false);
       }
     };
-
+    
     getTrendingTracks();
   }, [accessToken]);
 
